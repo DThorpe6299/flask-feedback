@@ -1,0 +1,14 @@
+{% extends base.html %}
+
+{% block content %}
+    {% if 'username' in session %}
+        {{% user.username %}}, {{% user.email %}}, {{% user.first_name %}} {{% user.last_name %}}
+        {% for feedback in feedbacks %}
+            {{feedback}}
+            <a href="/feedback/{{feedback.id}}/update">Edit Feedback</a><br>
+            <a href="/feedback/{{feedback.id}}/delete"><button>Delete Feedback</button></a>
+            <a href="users/{{user.username}}/feedback/add">Add Feedback</a>
+            <a href="/users/{{user.username}}/delete">Delete {{username}}</a>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{%block title %} Add Feedback {% endblock %}
+<body>
+    {% block content %}
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.title.label }}<br>
+            {{ form.title(class="form-control") }} <!-- You can add classes for styling -->
+            {% for error in form.title.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.content.label }}<br>
+            {{ form.content(class="form-control") }} <!-- You can add classes for styling -->
+            {% for error in form.content.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    {% endblock %}
+</body>
+</html>
